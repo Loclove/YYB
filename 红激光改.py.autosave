@@ -1,0 +1,81 @@
+import sensor, image, time, math
+from pyb import LED
+from pyb import UART
+
+thresholds = [(30, 100, 127, 12, -128, 127)]
+
+sensor.reset() 
+sensor.set_pixformat(sensor.RGB565)  
+sensor.set_framesize(sensor.QQVGA)  
+sensor.skip_frames(time=2000)
+#sensor.set_auto_gain(False) # must be turned off for color tracking
+sensor.set_auto_whitebal(False)  # must be turned off for color tracking
+clock = time.clock() 
+
+uart = UART(3,115200)
+flag1 = 0
+flag2 = 0
+q = [0] * 8 
+cx = 0
+cy = 0
+
+while True:  
+    clock.tick()
+    img = sensor.snapshot().lens_corr(1.8) 
+    i = 0
+    for blob in img.find_blobs(thresholds, pixels_threshold=20, area_threshold=20):
+        # print(blob.solidity())
+        if blob.solidity() > 0.50 and flag1 < 6:
+            flag1 = flag1 + 1
+            img.draw_rectangle(blob.rect(), color=(255, 0, 0))
+            # print([blob.cx(),blob.cy()]);
+            cx = cx + blob.cx()
+            cy = cy + blob.cy()
+
+
+    for r in img.find_rects(threshold=30000):
+        # print(r)
+        if r.w() > 30 and r.h() > 30 and r.w() < 70 and r.h() < 70 and flag2 < 6:
+            flag2 = flag2 + 1
+            img.draw_rectangle(r.rect(), color=(0, 0, 255))
+            for p in r.corners():
+                img.draw_circle(p[0], p[1], 5, color=(0, 255, 0))
+                if i < 8:  
+                    q[i] = q[i] + p[0]
+                    i = i + 1
+                    if i < 8:  
+                        q[i] = q[i] + p[1]
+                        i = i + 1
+
+    print([0xA5, cx, cy, q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7], 0xA6])
+    
+    if flag1 >= 5 and flag2 >= 5:
+        cx = cx // flag1
+        cy = cy // flag1
+        q[0] = q[0] // flag2
+        q[1] = q[1] // flag2
+        q[2] = q[2] // flag2
+        q[3] = q[3] // flag2
+        q[4] = q[4] // flag2
+        q[5] = q[5] // flag2
+        q[6] = q[6] // flag2
+        q[7] = q[7] // flag2
+        
+    
+        data = [0xA5, cx & 0xFF, cy & 0xFF]
+        for val in q[:8]:
+            data.append(val & 0xFF)
+        data.append(0xA6)
+        
+        a = bytearray(data)
+        uart.write(a)
+        print(f"发送数据: {data}")
+        
+        # 重置变量
+        q = [0] * 8
+        cx = 0
+        cy = 0
+        flag1 = 0
+        flag2 = 0
+    
+    # print("FPS %f" % clock.fps())
