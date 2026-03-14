@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="姚彦博的个人网站 — 分享项目、文章与技术心得" />
+  <meta name="keywords" content="姚彦博, OpenMV, 嵌入式, 个人网站, 作品集" />
+  <meta name="author" content="姚彦博" />
+  <title>姚彦博的仓库</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ===== 导航栏 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">YYB<span class="dot">.</span></a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home"      class="nav-link">首页</a>
+        <a href="#portfolio" class="nav-link">作品集</a>
+        <a href="#blog"      class="nav-link">博客</a>
+        <a href="#about"     class="nav-link">关于我</a>
+        <a href="#contact"   class="nav-link">联系方式</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="打开菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 首页 Hero ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-greeting">你好，我是</p>
+      <h1 class="hero-title">姚彦博</h1>
+      <p class="hero-subtitle">嵌入式开发 · 机器视觉 · 创客爱好者</p>
+      <p class="hero-desc">
+        热衷于探索机器视觉与嵌入式系统，专注于 OpenMV 开发与智能控制。<br>
+        这里记录我的项目成果、学习历程和技术心得。
+      </p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary">查看作品</a>
+        <a href="#contact"   class="btn btn-outline">联系我</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <div class="avatar-inner">YYB</div>
+      </div>
+      <div class="floating-badge badge-1">OpenMV</div>
+      <div class="floating-badge badge-2">Python</div>
+      <div class="floating-badge badge-3">C / C++</div>
+    </div>
+  </section>
+
+  <!-- ===== 作品集 ===== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <h2 class="section-title">作品集</h2>
+      <p class="section-sub">我的项目与技术探索</p>
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">激光追踪云台</h3>
+          <p class="card-desc">基于 OpenMV 的激光点识别与云台 PID 控制系统，实现红色激光自动追踪。</p>
+          <div class="card-tags">
+            <span class="tag">OpenMV</span>
+            <span class="tag">PID</span>
+            <span class="tag">舵机控制</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🔴</div>
+          <h3 class="card-title">红激光识别系统</h3>
+          <p class="card-desc">通过颜色阈值动态调节，精确识别红色/绿色激光点并输出坐标信息。</p>
+          <div class="card-tags">
+            <span class="tag">机器视觉</span>
+            <span class="tag">阈值调节</span>
+            <span class="tag">串口通信</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🏆</div>
+          <h3 class="card-title">2023 电赛 E 题</h3>
+          <p class="card-desc">参加全国大学生电子设计竞赛，完成激光控制与视觉引导相关题目的基础部分。</p>
+          <div class="card-tags">
+            <span class="tag">电赛</span>
+            <span class="tag">嵌入式</span>
+            <span class="tag">K230</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🚗</div>
+          <h3 class="card-title">巡线 PID 小车</h3>
+          <p class="card-desc">利用摄像头识别路线，结合 PID 算法实现小车自主巡线行驶。</p>
+          <div class="card-tags">
+            <span class="tag">巡线</span>
+            <span class="tag">PID</span>
+            <span class="tag">自动控制</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🖥️</div>
+          <h3 class="card-title">OpenMV 阈值调节 UI</h3>
+          <p class="card-desc">基于 OpenMV 的可视化颜色阈值调节界面，实时预览识别效果。</p>
+          <div class="card-tags">
+            <span class="tag">UI</span>
+            <span class="tag">颜色识别</span>
+            <span class="tag">OpenMV</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📡</div>
+          <h3 class="card-title">串口视觉通信</h3>
+          <p class="card-desc">实现视觉模块与主控板之间的串口数据传输协议，稳定可靠。</p>
+          <div class="card-tags">
+            <span class="tag">串口</span>
+            <span class="tag">协议</span>
+            <span class="tag">嵌入式</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 博客 ===== -->
+  <section class="section section-alt" id="blog">
+    <div class="container">
+      <h2 class="section-title">博客 / 文章</h2>
+      <p class="section-sub">记录学习与探索的点滴</p>
+      <div class="blog-list">
+
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">2024-03</span>
+            <span class="blog-cat">机器视觉</span>
+          </div>
+          <h3 class="blog-title">OpenMV 入门：从零开始的图像识别</h3>
+          <p class="blog-excerpt">介绍 OpenMV 开发板的基本使用方法，以及如何利用内置函数实现颜色识别和目标追踪……</p>
+          <a href="#" class="blog-more">阅读更多 →</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">2024-01</span>
+            <span class="blog-cat">控制理论</span>
+          </div>
+          <h3 class="blog-title">PID 控制器调参实战心得</h3>
+          <p class="blog-excerpt">结合实际项目，分享 PID 三个参数的物理意义和快速调参方法，减少反复试错……</p>
+          <a href="#" class="blog-more">阅读更多 →</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">2023-09</span>
+            <span class="blog-cat">竞赛总结</span>
+          </div>
+          <h3 class="blog-title">2023 全国电子设计竞赛备赛总结</h3>
+          <p class="blog-excerpt">回顾备赛过程中遇到的挑战、解决方案以及学到的经验教训，给后来者提供参考……</p>
+          <a href="#" class="blog-more">阅读更多 →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 关于我 ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">关于我</h2>
+      <p class="section-sub">简单介绍一下我自己</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>我是 <strong>姚彦博</strong>，一名热爱技术的嵌入式开发者与创客。平时专注于机器视觉、嵌入式系统以及智能控制相关的研究与实践。</p>
+          <p>目前主要使用 <strong>OpenMV</strong>、<strong>K230</strong> 等视觉模块，以及 Python / C / C++ 进行开发。</p>
+          <p>我相信"做中学"，喜欢通过参与竞赛和实际项目来提升自己的能力。这个仓库是我的技术探索和成果记录。</p>
+          <div class="skills">
+            <h4>技术栈</h4>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <span class="skill-name">Python / OpenMV</span>
+                <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">C / 嵌入式 C</span>
+                <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">机器视觉</span>
+                <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">控制系统 (PID)</span>
+                <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">完成项目</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">2+</span>
+            <span class="stat-label">年开发经验</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">1</span>
+            <span class="stat-label">电赛参赛</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">持续学习中</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 联系方式 ===== -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <h2 class="section-title">联系方式</h2>
+      <p class="section-sub">有任何想法或合作意向，欢迎联系我！</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>找到我</h3>
+          <div class="social-links">
+            <a href="https://github.com/Loclove" class="social-link" target="_blank" rel="noopener">
+              <span class="social-icon">⬡</span>
+              <span>GitHub</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-icon">✉</span>
+              <span>Email</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-icon">💬</span>
+              <span>微信</span>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="你的名字" required />
+          </div>
+          <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">留言</label>
+            <textarea id="message" name="message" rows="5" placeholder="写下你的留言…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">发送留言</button>
+          <p class="form-feedback" id="formFeedback"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> 姚彦博 · 用 ❤ 和代码构建</p>
+      <nav class="footer-nav">
+        <a href="#home">首页</a>
+        <a href="#portfolio">作品集</a>
+        <a href="#blog">博客</a>
+        <a href="#about">关于我</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="scroll-top" id="scrollTop" aria-label="回到顶部">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
